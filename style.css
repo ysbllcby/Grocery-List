@@ -28,12 +28,12 @@ img {
     font-family: 'Rubik', sans-serif;
     font-size: 20px;
     text-align: center;
-    border: #AC485A 2px solid;
+    border: #ff0000 2px solid;
 }
 
 #add-btn {
-    color: #FDFDFD;
-    background-color: #AC485A;
+    color: #ff0000;
+    background-color: #ffee00;
     font-family: 'Rubik', sans-serif;
     border: 0;
     padding: 8px;

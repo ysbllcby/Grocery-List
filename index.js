@@ -11,10 +11,21 @@ const groceryListDB = ref(database, 'grocery-list');
 
 const inputField = document.querySelector('input');
 const addButton = document.querySelector('button');
+const groceryListUL = document.getElementById('shopping-list');
 
 addButton.addEventListener('click', () => {
     let userInput = inputField.value;
-
     push(groceryListDB, userInput);
-    console.log(userInput);
+
+    groceryListList(userInput);
+    
+    clearInputValue();
 });
+
+function groceryListList(itemValue) {
+    groceryListUL.innerHTML += `<li>${itemValue}</li>`;
+}
+
+function clearInputValue() {
+    inputField.value = '';
+}
