@@ -1,4 +1,3 @@
-### Grocery-List
-## https://ysbllcby.github.io/Grocery-List/
-Grocery List Mobile App
+### Grocery List Mobile App
+https://ysbllcby.github.io/Grocery-List/
 Uses HTML | CSS | Javascript | Firebase
