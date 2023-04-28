@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+import { getDatabase, ref, push, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 import { onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -22,17 +22,24 @@ addButton.addEventListener('click', () => {
 });
 
 onValue(groceryListDB, function(snapshot) {
-    let itemsArray = Object.entries(snapshot.val());
 
-    clearShoppingList();
+    if (snapshot.exists()) {
+        let itemsArray = Object.entries(snapshot.val());
 
-    for (let i = 0; i < itemsArray.length; i++) {
-        let currentItem  = itemsArray[i];
+        clearShoppingList();
 
-        let currentItemId = currentItem[0];
-        let currentItemValue = currentItem[1];
-        groceryListList(currentItem);
+        for (let i = 0; i < itemsArray.length; i++) {
+            let currentItem  = itemsArray[i];
+
+            let currentItemId = currentItem[0];
+            let currentItemValue = currentItem[1];
+            groceryListList(currentItem);
+        }
+    } else {
+        groceryListUL.innerHTML = "No items here yet."
     }
+
+    
 });
 
 function groceryListList(item) {
@@ -41,6 +48,12 @@ function groceryListList(item) {
 
     let newLi = document.createElement('li');
     newLi.textContent = itemValue;
+
+    newLi.addEventListener("click", function() {
+        let exactLocationOfItemInDb = ref(database, `grocery-list/${itemId}`)
+        console.log(exactLocationOfItemInDb);
+        remove(exactLocationOfItemInDb);
+    });
 
     groceryListUL.appendChild(newLi);
 }
