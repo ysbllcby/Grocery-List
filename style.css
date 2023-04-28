@@ -28,12 +28,12 @@ img {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 20px;
     text-align: center;
-    border: #ff0000 2px solid;
+    border: #402c13 2px solid;
 }
 
 #add-btn {
-    color: #ff0000;
-    background-color: #ffee00;
+    color: #000000;
+    background-color: #2dafff;
     font-family: 'Rubik', sans-serif;
     border: 0;
     padding: 8px;
@@ -42,4 +42,24 @@ img {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 20px;
     text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+ul li {
+    background-color: #6bd8ee;
+    border: #402c13 2px solid;
+    box-shadow: 0 0 10px #0127ff;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    flex-grow: 1;
 }

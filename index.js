@@ -17,21 +17,38 @@ const groceryListUL = document.getElementById('shopping-list');
 addButton.addEventListener('click', () => {
     let userInput = inputField.value;
     push(groceryListDB, userInput);
-
-    groceryListList(userInput);
     
     clearInputValue();
 });
 
 onValue(groceryListDB, function(snapshot) {
-    let itemsArray = Object.values(snapshot.val());
-    console.log(itemsArray);
+    let itemsArray = Object.entries(snapshot.val());
+
+    clearShoppingList();
+
+    for (let i = 0; i < itemsArray.length; i++) {
+        let currentItem  = itemsArray[i];
+
+        let currentItemId = currentItem[0];
+        let currentItemValue = currentItem[1];
+        groceryListList(currentItem);
+    }
 });
 
-function groceryListList(itemValue) {
-    groceryListUL.innerHTML += `<li>${itemValue}</li>`;
+function groceryListList(item) {
+    let itemId = item[0];
+    let itemValue = item[1];
+
+    let newLi = document.createElement('li');
+    newLi.textContent = itemValue;
+
+    groceryListUL.appendChild(newLi);
 }
 
 function clearInputValue() {
     inputField.value = '';
+}
+
+function clearShoppingList() {
+    groceryListUL.innerHTML = '';
 }
