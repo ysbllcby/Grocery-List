@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     font-family: 'IBM Plex Sans', sans-serif;
     background-color: #EEF0F4;
+    user-select: none;
 }
 
 .container {
@@ -28,7 +29,7 @@ img {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 20px;
     text-align: center;
-    border: #402c13 2px solid;
+    border: #000000 2px solid;
 }
 
 #add-btn {
@@ -44,6 +45,10 @@ img {
     text-align: center;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -55,11 +60,15 @@ ul {
 }
 
 ul li {
-    background-color: #6bd8ee;
-    border: #402c13 2px solid;
-    box-shadow: 0 0 10px #0127ff;
+    background-color: #12b4ff;
+    border: #000000 2px solid;
     border-radius: 10px;
     text-align: center;
     padding: 15px;
     flex-grow: 1;
+}
+
+ul li:hover {
+    background-color: #51cc57;
+    cursor: pointer;
 }
