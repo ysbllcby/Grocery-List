@@ -36,9 +36,9 @@ img {
     color: #000000;
     background-color: #2dafff;
     font-family: 'Rubik', sans-serif;
-    border: 0;
     padding: 8px;
     border-radius: 10px;
+    border: none;
     margin-bottom: 5px;
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 20px;
@@ -61,8 +61,9 @@ ul {
 
 ul li {
     background-color: #12b4ff;
-    border: #000000 2px solid;
+    border: none;
     border-radius: 10px;
+    font-size: 20px;
     text-align: center;
     padding: 15px;
     flex-grow: 1;
